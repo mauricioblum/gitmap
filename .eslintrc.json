@@ -1,0 +1,27 @@
+{
+  "extends": "airbnb",
+  "env": {
+    "browser": true,
+    "jest": true
+  },
+  "plugins": ["react", "jsx-a11y", "import"],
+  "rules": {
+    "react/jsx-filename-extension": [
+      "error",
+      {
+        "extensions": [".js", ".jsx"]
+      }
+    ],
+    "global-require": "off",
+    "import/prefer-default-export": "off",
+    "implicit-arrow-linebreak": "off",
+    "no-unused-vars": [
+      "error",
+      {
+        "argsIgnorePatter": "^_"
+      }
+    ],
+    "consistent-return": "off",
+    "no-useless-return": "off"
+  }
+}
