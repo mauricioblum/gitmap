@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const Container = styled.div`
   display: flex;
@@ -39,6 +39,7 @@ export const Avatar = styled.img`
 
 export const Name = styled.p`
   font-size: 20px;
+  white-space: nowrap;
 `;
 
 export const Username = styled.small`

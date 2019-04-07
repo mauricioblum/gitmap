@@ -11,6 +11,7 @@ import Modal from "../../components/Modal";
 import { Creators as ModalActions } from "../../store/ducks/modal";
 
 import "mapbox-gl/dist/mapbox-gl.css";
+import users from "../../store/ducks/users";
 
 class Main extends Component {
   static propTypes = {
@@ -26,8 +27,7 @@ class Main extends Component {
       latitude: -23.5439948,
       longitude: -46.6065452,
       zoom: 14
-    },
-    userInput: ""
+    }
   };
 
   componentDidMount() {
@@ -104,7 +104,8 @@ class Main extends Component {
 }
 
 const mapStateToProps = state => ({
-  modal: state.modal
+  modal: state.modal,
+  users: state.users
 });
 
 const mapDispatchToProps = dispatch =>
