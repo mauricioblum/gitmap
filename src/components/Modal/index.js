@@ -16,7 +16,7 @@ class Modal extends Component {
   handleAddUser = e => {
     e.preventDefault();
 
-    this.props.addUserRequest(this.state.userInput);
+    this.props.addUserRequest(this.state.userInput, this.props.coords);
 
     this.setState({ userInput: "" });
   };
@@ -43,7 +43,8 @@ class Modal extends Component {
 }
 
 const mapStateToProps = state => ({
-  open: state.modal.open
+  open: state.modal.open,
+  coords: state.modal.coords
 });
 
 const mapDispatchToProps = dispatch =>

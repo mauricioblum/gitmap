@@ -9,6 +9,7 @@ import MapGL, { Marker } from "react-map-gl";
 import Menu from "../../components/Menu";
 import Modal from "../../components/Modal";
 import { Creators as ModalActions } from "../../store/ducks/modal";
+import { Creators as UserActions } from "../../store/ducks/users";
 
 import "mapbox-gl/dist/mapbox-gl.css";
 import users from "../../store/ducks/users";
@@ -53,7 +54,7 @@ class Main extends Component {
     const [latitude, longitude] = e.lngLat;
 
     //alert(`Latitude: ${latitude} \nLongitude: ${longitude}`);
-    this.props.onOpenModal();
+    this.props.onOpenModal([latitude, longitude]);
   };
 
   handleMapShowUser = () => {
@@ -82,6 +83,25 @@ class Main extends Component {
               zIndex: 2000
             }}
           />
+          {this.props.users.data.map(user => (
+            <Marker
+              key={user.id}
+              latitude={user.latitude}
+              longitude={user.longitude}
+              onClick={() => this.handleMapShowUser()}
+              captureClick
+            >
+              <img
+                style={{
+                  borderRadius: 100,
+                  width: 48,
+                  height: 48
+                }}
+                src={user.avatar}
+                alt=""
+              />
+            </Marker>
+          ))}
           <Marker
             latitude={-23.5439948}
             longitude={-46.6065452}
@@ -95,6 +115,7 @@ class Main extends Component {
                 height: 48
               }}
               src="https://avatars2.githubusercontent.com/u/2254731?v=4"
+              alt=""
             />
           </Marker>
         </MapGL>
@@ -109,7 +130,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch =>
-  bindActionCreators(ModalActions, dispatch);
+  bindActionCreators(Object.assign({}, UserActions, ModalActions), dispatch);
 
 export default connect(
   mapStateToProps,

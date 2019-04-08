@@ -28,6 +28,11 @@ export const Dev = styled.li`
   border-bottom: 1px solid lightgray;
   margin-top: 5px;
   margin-bottom: 5px;
+
+  .options {
+    margin-left: 50%;
+    white-space: nowrap;
+  }
 `;
 
 export const Avatar = styled.img`
@@ -40,6 +45,7 @@ export const Avatar = styled.img`
 export const Name = styled.p`
   font-size: 20px;
   white-space: nowrap;
+  width: 20%;
 `;
 
 export const Username = styled.small`

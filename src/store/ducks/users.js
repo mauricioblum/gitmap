@@ -29,9 +29,9 @@ export default function users(state = INITIAL_STATE, action) {
 }
 
 export const Creators = {
-  addUserRequest: user => ({
+  addUserRequest: (user, coords) => ({
     type: Types.ADD_REQUEST,
-    payload: { user }
+    payload: { user, coords }
   }),
 
   addUserSuccess: data => ({

@@ -17,14 +17,14 @@ const Menu = props => (
             <br />
             <Username>{user.login}</Username>
           </Name>
-          <div style={{ marginLeft: "35%" }}>
+          <div className="options">
             <i
               className="fa fa-times-circle"
-              style={{ cursor: "pointer", marginLeft: "30px", color: "#f006" }}
+              style={{ cursor: "pointer", color: "#f006" }}
             />
             <i
               className="fa fa-chevron-right"
-              style={{ cursor: "pointer", color: "#777", marginLeft: "30px" }}
+              style={{ cursor: "pointer", color: "#777", marginLeft: "15px" }}
             />
           </div>
         </Dev>
@@ -39,14 +39,14 @@ const Menu = props => (
           <br />
           <Username>user</Username>
         </Name>
-        <div style={{ marginLeft: "35%" }}>
+        <div className="options">
           <i
             className="fa fa-times-circle"
-            style={{ cursor: "pointer", marginLeft: "30px", color: "#f006" }}
+            style={{ cursor: "pointer", color: "#f006" }}
           />
           <i
             className="fa fa-chevron-right"
-            style={{ cursor: "pointer", color: "#777", marginLeft: "30px" }}
+            style={{ cursor: "pointer", color: "#777", marginLeft: "15px" }}
           />
         </div>
       </Dev>

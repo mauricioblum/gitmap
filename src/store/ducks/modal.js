@@ -3,12 +3,12 @@ export const Types = {
   CLOSE_MODAL: "modal/CLOSE_MODAL"
 };
 
-const INITIAL_STATE = { open: false };
+const INITIAL_STATE = { open: false, coords: [] };
 
 export default function modal(state = INITIAL_STATE, action) {
   switch (action.type) {
     case Types.OPEN_MODAL:
-      return { ...state, open: true };
+      return { ...state, open: true, coords: action.payload.coords };
     case Types.CLOSE_MODAL:
       return { ...state, open: false };
     default:
@@ -17,8 +17,9 @@ export default function modal(state = INITIAL_STATE, action) {
 }
 
 export const Creators = {
-  onOpenModal: modal => ({
-    type: Types.OPEN_MODAL
+  onOpenModal: coords => ({
+    type: Types.OPEN_MODAL,
+    payload: { coords }
   }),
   onCloseModal: modal => ({
     type: Types.CLOSE_MODAL
