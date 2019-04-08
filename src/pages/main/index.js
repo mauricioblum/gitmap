@@ -12,7 +12,6 @@ import { Creators as ModalActions } from "../../store/ducks/modal";
 import { Creators as UserActions } from "../../store/ducks/users";
 
 import "mapbox-gl/dist/mapbox-gl.css";
-import users from "../../store/ducks/users";
 
 class Main extends Component {
   static propTypes = {
@@ -102,22 +101,6 @@ class Main extends Component {
               />
             </Marker>
           ))}
-          <Marker
-            latitude={-23.5439948}
-            longitude={-46.6065452}
-            onClick={() => this.handleMapShowUser()}
-            captureClick
-          >
-            <img
-              style={{
-                borderRadius: 100,
-                width: 48,
-                height: 48
-              }}
-              src="https://avatars2.githubusercontent.com/u/2254731?v=4"
-              alt=""
-            />
-          </Marker>
         </MapGL>
       </Fragment>
     );

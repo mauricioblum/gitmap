@@ -8,6 +8,9 @@ import { Creators as UserActions } from "../../store/ducks/users";
 
 import { Container } from "./styles";
 
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 class Modal extends Component {
   state = {
     userInput: ""
@@ -17,6 +20,11 @@ class Modal extends Component {
     e.preventDefault();
 
     this.props.addUserRequest(this.state.userInput, this.props.coords);
+    if (!!this.props.users.error) {
+      toast.error(this.props.users.error);
+    } else {
+      this.props.onCloseModal();
+    }
 
     this.setState({ userInput: "" });
   };
@@ -37,6 +45,7 @@ class Modal extends Component {
           </button>
           <button type="submit">Adicionar usuário</button>
         </form>
+        <ToastContainer />
       </Container>
     );
   }
@@ -44,7 +53,8 @@ class Modal extends Component {
 
 const mapStateToProps = state => ({
   open: state.modal.open,
-  coords: state.modal.coords
+  coords: state.modal.coords,
+  users: state.users
 });
 
 const mapDispatchToProps = dispatch =>
